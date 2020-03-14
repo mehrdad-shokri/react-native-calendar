@@ -4,7 +4,7 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import {AppRegistry} from 'react-native';
-import Navigator from './Navigator';
+import RootNavigator from './src/navigators';
 import {name as appName} from './app.json';
 import {Provider as PaperProvider, DefaultTheme} from 'react-native-paper';
 import {NavigationContainer} from '@react-navigation/native';
@@ -24,7 +24,7 @@ const AppWrapper = () => (
          }}*/
   >
     <NavigationContainer>
-      <Navigator />
+      <RootNavigator />
     </NavigationContainer>
   </PaperProvider>
 );
