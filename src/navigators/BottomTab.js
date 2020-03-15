@@ -6,13 +6,12 @@ import {useSafeArea} from 'react-native-safe-area-context';
 import {useIsFocused} from '@react-navigation/native';
 
 import overlay from '../utils/overlay';
-import HomeScreen from '../screens/Home';
+import Drawer from './Drawer';
 import SettingsScreen from '../screens/Settings';
 
 const Tab = createMaterialBottomTabNavigator();
 
 export const BottomTabs = props => {
-    console.log('BottomTab', props);
 /*
   const routeName = props.route.state
     ? props.route.state.routes[props.route.state.index].name
@@ -43,7 +42,7 @@ export const BottomTabs = props => {
   return (
     <React.Fragment>
       <Tab.Navigator
-        initialRouteName="Feed"
+        initialRouteName="TaskList"
         backBehavior="initialRoute"
         shifting={true}
         activeColor={theme.colors.primary}
@@ -53,8 +52,8 @@ export const BottomTabs = props => {
           .string()}
         sceneAnimationEnabled={false}>
         <Tab.Screen
-          name="Home"
-          component={HomeScreen}
+          name="TaskList"
+          component={Drawer}
           options={{
             tabBarIcon: 'home-account',
             tabBarColor,

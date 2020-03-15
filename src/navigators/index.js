@@ -1,9 +1,8 @@
 import React from 'react';
-import Drawer from './Drawer';
-import BottomTab from './BottomTab';
+import Stack from './Stack';
 
-const Index = (props) => {
-  return <BottomTab />;
+const Index = props => {
+  return <Stack />;
 };
 
 export default Index;

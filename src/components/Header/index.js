@@ -1,10 +1,12 @@
 import React from 'react';
 import {TouchableOpacity} from 'react-native';
-import {createStackNavigator} from '@react-navigation/stack';
-import {Appbar, Avatar} from 'react-native-paper';
+import {Appbar, Avatar, useTheme} from 'react-native-paper';
+import {DrawerActions} from '@react-navigation/native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Header = ({scene, previous, navigation}) => {
+  console.log('appbar', navigation);
+  const theme = useTheme();
   const {options} = scene.descriptor;
   const title =
     options.headerTitle !== undefined
@@ -23,7 +25,7 @@ const Header = ({scene, previous, navigation}) => {
       ) : (
         <TouchableOpacity
           onPress={() => {
-            navigation.openDrawer();
+            // navigation.dispatch(DrawerActions.openDrawer());
           }}>
           <Avatar.Image
             size={40}

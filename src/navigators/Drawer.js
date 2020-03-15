@@ -1,14 +1,14 @@
 import React from 'react';
 import {Text, View} from 'react-native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import HomeScreen from '../screens/Home';
 const Drawer = createDrawerNavigator();
+import InboxScreen from '../screens/TaskList';
 import DrawerContent from '../components/Drawer';
 
 export const RootNavigator = () => {
   return (
     <Drawer.Navigator drawerContent={() => <DrawerContent />}>
-      <Drawer.Screen name="Home" component={HomeScreen} />
+      <Drawer.Screen name="TaskList" component={InboxScreen} />
     </Drawer.Navigator>
   );
 };
