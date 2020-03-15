@@ -19,10 +19,9 @@ const theme = {
 };
 const AppWrapper = () => (
   <PaperProvider
-  /*settings={{
-           icon: props => <FeatherIcons {...props} />,
-         }}*/
-  >
+    settings={{
+      icon: props => <FeatherIcons {...props} />,
+    }}>
     <NavigationContainer>
       <RootNavigator />
     </NavigationContainer>

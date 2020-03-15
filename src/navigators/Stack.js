@@ -2,28 +2,28 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {useTheme} from 'react-native-paper';
 import Header from '../components/Header';
-
 import BottomTabs from './BottomTab';
 
 const Stack = createStackNavigator();
 
-export const StackNavigator = () => {
+const StackNavigator = () => {
   const theme = useTheme();
 
   return (
     <Stack.Navigator
-      initialRouteName="HomeScreen"
+      initialRouteName="BottomTabs"
       headerMode="screen"
       screenOptions={{
         header: Header,
       }}>
       <Stack.Screen
-        name="HomeScreen"
+        name="BottomTabs"
         component={BottomTabs}
-        options={({route}) => {
+        options={({route, navigation}) => {
+          console.log('get bottom tab title', route, navigation)
           const routeName = route.state
             ? route.state.routes[route.state.index].name
-            : 'Inbox';
+            : 'NOTITLE';
           return {headerTitle: routeName};
         }}
       />

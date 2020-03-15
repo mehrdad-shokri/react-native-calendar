@@ -4,7 +4,7 @@ import {createMaterialBottomTabNavigator} from '@react-navigation/material-botto
 import {useTheme, Portal, FAB} from 'react-native-paper';
 import {useSafeArea} from 'react-native-safe-area-context';
 import {useIsFocused} from '@react-navigation/native';
-
+import FeatherIcons from 'react-native-vector-icons/Feather';
 import overlay from '../utils/overlay';
 import Drawer from './Drawer';
 import SettingsScreen from '../screens/Settings';
@@ -12,30 +12,8 @@ import TaskListScreen from '../screens/TaskList';
 
 const Tab = createMaterialBottomTabNavigator();
 
-export const BottomTabs = props => {
-  /*
-  const routeName = props.route.state
-    ? props.route.state.routes[props.route.state.index].name
-    : 'Feed';
-*/
-
+const BottomTabs = props => {
   const theme = useTheme();
-  // const safeArea = useSafeArea();
-  // const isFocused = useIsFocused();
-
-  let icon = 'feather';
-
-  /*
-  switch (routeName) {
-    case 'Messages':
-      icon = 'email-plus-outline';
-      break;
-    default:
-      icon = 'feather';
-      break;
-  }
-*/
-
   const tabBarColor = theme.dark
     ? overlay(6, theme.colors.surface)
     : theme.colors.surface;
@@ -44,28 +22,39 @@ export const BottomTabs = props => {
     <React.Fragment>
       <Tab.Navigator
         initialRouteName="TaskList"
-        backBehavior="initialRoute"
         shifting={true}
         activeColor={theme.colors.primary}
         inactiveColor={color(theme.colors.text)
           .alpha(0.6)
           .rgb()
           .string()}
-        sceneAnimationEnabled={false}>
+        backBehavior={'initialRoute'}
+        sceneAnimationEnabled={true}>
         <Tab.Screen
           name="TaskList"
           component={TaskListScreen}
           options={{
-            tabBarIcon: 'home-account',
+            tabBarIcon: ({focused, color}) => (
+              <FeatherIcons color={color} name={'check-square'} size={23} />
+            ),
+            tabBarLabel: 'InboxLabel',
             tabBarColor,
+            title: 'TASKSLIST!',
+          }}
+          initialParams={{
+            title: 'TASKLIST!!!',
           }}
         />
         <Tab.Screen
           name="Settings"
           component={SettingsScreen}
           options={{
-            tabBarIcon: 'bell-outline',
+            tabBarIcon: ({focused, color}) => (
+              <FeatherIcons color={color} name={'settings'} size={23} />
+            ),
+            tabBarLabel: 'SeetingsLabel',
             tabBarColor,
+            title: 'woman',
           }}
         />
       </Tab.Navigator>
