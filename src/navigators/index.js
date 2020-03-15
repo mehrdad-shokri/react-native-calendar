@@ -1,8 +1,8 @@
 import React from 'react';
-import Stack from './Stack';
+import Drawer from './Drawer';
 
 const Index = props => {
-  return <Stack />;
+  return <Drawer />;
 };
 
 export default Index;

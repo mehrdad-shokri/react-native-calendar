@@ -8,11 +8,12 @@ import {useIsFocused} from '@react-navigation/native';
 import overlay from '../utils/overlay';
 import Drawer from './Drawer';
 import SettingsScreen from '../screens/Settings';
+import TaskListScreen from '../screens/TaskList';
 
 const Tab = createMaterialBottomTabNavigator();
 
 export const BottomTabs = props => {
-/*
+  /*
   const routeName = props.route.state
     ? props.route.state.routes[props.route.state.index].name
     : 'Feed';
@@ -24,7 +25,7 @@ export const BottomTabs = props => {
 
   let icon = 'feather';
 
-/*
+  /*
   switch (routeName) {
     case 'Messages':
       icon = 'email-plus-outline';
@@ -53,7 +54,7 @@ export const BottomTabs = props => {
         sceneAnimationEnabled={false}>
         <Tab.Screen
           name="TaskList"
-          component={Drawer}
+          component={TaskListScreen}
           options={{
             tabBarIcon: 'home-account',
             tabBarColor,

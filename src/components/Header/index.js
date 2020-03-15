@@ -25,6 +25,7 @@ const Header = ({scene, previous, navigation}) => {
       ) : (
         <TouchableOpacity
           onPress={() => {
+            navigation.openDrawer();
             // navigation.dispatch(DrawerActions.openDrawer());
           }}>
           <Avatar.Image
