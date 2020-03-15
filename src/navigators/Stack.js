@@ -19,12 +19,24 @@ const StackNavigator = () => {
       <Stack.Screen
         name="BottomTabs"
         component={BottomTabs}
-        options={({route, navigation}) => {
-          console.log('get bottom tab title', route, navigation)
+        options={({route}) => {
+          let title;
           const routeName = route.state
             ? route.state.routes[route.state.index].name
-            : 'NOTITLE';
-          return {headerTitle: routeName};
+            : route.params && route.params.screen
+            ? route.params.screen
+            : 'TaskList';
+          switch (routeName) {
+            case 'TaskList':
+              title = 'Tasks screen';
+              break;
+            case 'Settings':
+              title = 'Settings screen';
+              break;
+            default:
+              return routeName;
+          }
+          return {headerTitle: title, routeName};
         }}
       />
     </Stack.Navigator>

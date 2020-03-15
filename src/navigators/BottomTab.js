@@ -33,28 +33,25 @@ const BottomTabs = props => {
         <Tab.Screen
           name="TaskList"
           component={TaskListScreen}
+          initialParams={{itemId: 42}}
           options={{
             tabBarIcon: ({focused, color}) => (
               <FeatherIcons color={color} name={'check-square'} size={23} />
             ),
             tabBarLabel: 'InboxLabel',
             tabBarColor,
-            title: 'TASKSLIST!',
-          }}
-          initialParams={{
-            title: 'TASKLIST!!!',
           }}
         />
         <Tab.Screen
           name="Settings"
           component={SettingsScreen}
           options={{
+            headerTitle: 'Settings',
             tabBarIcon: ({focused, color}) => (
               <FeatherIcons color={color} name={'settings'} size={23} />
             ),
             tabBarLabel: 'SeetingsLabel',
             tabBarColor,
-            title: 'woman',
           }}
         />
       </Tab.Navigator>

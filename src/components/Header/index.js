@@ -30,7 +30,7 @@ const Header = ({scene, previous, navigation}) => {
           color={theme.colors.primary}
         />
       ) : (
-        scene.route.name === 'TaskList' && (
+        options.routeName === 'TaskList' && (
           <Appbar.Action icon={'menu'} onPress={navigation.openDrawer} />
         )
       )}
