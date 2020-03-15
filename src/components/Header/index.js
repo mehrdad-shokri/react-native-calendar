@@ -36,22 +36,11 @@ const Header = ({scene, previous, navigation}) => {
       )}
 
       <Appbar.Content
-        title={
-          title === 'Feed' ? (
-            <FeatherIcons
-              style={{marginRight: 10}}
-              name="twitter"
-              size={40}
-              color={theme.colors.primary}
-            />
-          ) : (
-            title
-          )
-        }
+        title={title}
         titleStyle={{
           fontSize: 18,
           fontWeight: 'bold',
-          color: theme.colors.primary,
+          color: theme.colors.text,
         }}
       />
     </Appbar.Header>
